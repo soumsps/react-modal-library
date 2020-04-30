@@ -14,7 +14,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     }
   }, [isLoggedIn]);
 
-  return isLoggedIn ? (
+  return (
     <div className="dashboard-container">
       <header role="heading" className="page-header">
         <h1 className="page-title">Example App Dashboard</h1>
@@ -39,8 +39,6 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
         <div className="dashboard-content-panel">Dashboard Content</div>
       </div>
     </div>
-  ) : (
-    ''
   );
 };
 
