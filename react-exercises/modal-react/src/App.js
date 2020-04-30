@@ -6,8 +6,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Homepage />
-      <Dashboard />
+      <div className="container">
+        <Homepage />
+        {/* <Dashboard /> */}
+        <div className="footer">Developed by Soumendu and Vinod</div>
+      </div>
     </div>
   );
 }
