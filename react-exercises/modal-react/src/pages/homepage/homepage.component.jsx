@@ -30,8 +30,18 @@ const Homepage = ({ setIsLoggedIn }) => {
       </header>
       <div className="content-homepage">Content</div>
 
-      {isSiginInModalOpen && <SignInModal setIsLoggedIn={setIsLoggedIn} />}
-      {isSiginUpModalOpen && <SignUpModal setIsLoggedIn={setIsLoggedIn} />}
+      {isSiginInModalOpen && (
+        <SignInModal
+          setIsLoggedIn={setIsLoggedIn}
+          closeModalCallback={setIsSignInModalOpen}
+        />
+      )}
+      {isSiginUpModalOpen && (
+        <SignUpModal
+          setIsLoggedIn={setIsLoggedIn}
+          closeModalCallback={setIsSignUpModalOpen}
+        />
+      )}
     </div>
   );
 };

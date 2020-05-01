@@ -9,7 +9,7 @@ const SignUpModal = (props) => {
     navigate('/dashboard');
   };
   return (
-    <Modal {...props}>
+    <Modal closeModalCallback={props.closeModalCallback}>
       <Modal.Header closeButton>
         <Modal.Title>SIGN UP</Modal.Title>
       </Modal.Header>

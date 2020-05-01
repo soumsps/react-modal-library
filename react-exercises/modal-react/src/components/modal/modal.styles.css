@@ -60,3 +60,18 @@
   border-bottom-right-radius: calc(0.3rem - 1px);
   border-bottom-left-radius: calc(0.3rem - 1px);
 }
+
+.modal-closeBtn {
+  background-color: #b0b0b0;
+  display: inline-block;
+  -webkit-user-select: none;
+  user-select: none;
+  border: none;
+  padding: 2px 6px;
+  margin: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}

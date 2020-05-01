@@ -10,6 +10,7 @@ import './modal.styles.css';
 
 const defaultValues = {
   backdrop: true,
+  closeButton: true,
   dialogWidth: 350,
   dialogHeight: 300,
 };
