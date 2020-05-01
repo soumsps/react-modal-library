@@ -2,14 +2,17 @@ import React, { useContext } from 'react';
 import ModalContext from './modal-context.component';
 
 const Backdrop = (props) => {
-  const { backdrop, closeModalCallback } = useContext(ModalContext);
+  const { backdrop, closeModalCallback, backdropModalCloseId } = useContext(ModalContext);
 
-  const handleCloseOnBackdropArea = () => {
-    closeModalCallback(false);
+  const handleCloseOnBackdropArea = (e) => {
+    let id = e.target.getAttribute('id');
+    if (id === backdropModalCloseId) {
+      closeModalCallback(false);
+    }
   };
 
   return backdrop ? (
-    <div className="modal-backdrop" onClick={() => handleCloseOnBackdropArea()}>
+    <div className="modal-backdrop" onClick={(e) => handleCloseOnBackdropArea(e)}>
       {props.children}
     </div>
   ) : (

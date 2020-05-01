@@ -12,6 +12,7 @@ const defaultValues = {
   backdrop: true,
   closeButton: true,
   onEscapeClose: true,
+  backdropModalCloseId: 'modal-container',
   dialogWidth: 350,
   dialogHeight: 300,
 };
@@ -37,7 +38,7 @@ const Modal = (props) => {
   return (
     <Provider value={newModalValue}>
       <Backdrop>
-        <div className="modal">
+        <div id={newModalValue.backdropModalCloseId} className="modal-container">
           <Dialog>{props.children}</Dialog>
         </div>
       </Backdrop>
