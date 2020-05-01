@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import ModalContext from './modal-context.component';
 import Backdrop from './modal-backdrop.component';
 import Body from './modal-body.component';
@@ -11,6 +11,7 @@ import './modal.styles.css';
 const defaultValues = {
   backdrop: true,
   closeButton: true,
+  onEscapeClose: true,
   dialogWidth: 350,
   dialogHeight: 300,
 };
@@ -18,8 +19,23 @@ const defaultValues = {
 const { Provider } = ModalContext;
 
 const Modal = (props) => {
+  const newModalValue = { ...defaultValues, ...props };
+
+  const handleModalCloseOnEscPress = useCallback((event) => {
+    if (event.keyCode === 27 && newModalValue.onEscapeClose) {
+      newModalValue.closeModalCallback(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleModalCloseOnEscPress, false);
+    return () => {
+      document.removeEventListener('keydown', handleModalCloseOnEscPress, false);
+    };
+  }, []);
+
   return (
-    <Provider value={{ ...defaultValues, ...props }}>
+    <Provider value={newModalValue}>
       <Backdrop>
         <div className="modal">
           <Dialog>{props.children}</Dialog>
