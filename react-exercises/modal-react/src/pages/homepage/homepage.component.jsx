@@ -1,16 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SignInModal from '../../components/signin-modal/signin-modal.component';
+import SignUpModal from '../../components/signup-modal/signup-modal.component';
 import './homepage.styles.css';
-import { navigate } from '@reach/router';
 
-const Homepage = ({ isLoggedIn, setIsLoggedIn }) => {
-  const handleSignInButton = () => {
-    setIsLoggedIn(true);
-    navigate('/dashboard');
-  };
-  const handleSignUpButton = () => {
-    setIsLoggedIn(true);
-    navigate('/dashboard');
-  };
+const Homepage = ({ setIsLoggedIn }) => {
+  const [isSiginInModalOpen, setIsSignInModalOpen] = useState(false);
+  const [isSiginUpModalOpen, setIsSignUpModalOpen] = useState(false);
+
   return (
     <div className="homepage-container">
       <header role="heading" className="page-header">
@@ -19,20 +15,33 @@ const Homepage = ({ isLoggedIn, setIsLoggedIn }) => {
           <button
             className="btn btn-signin"
             type="button"
-            onClick={() => handleSignInButton()}
+            onClick={() => setIsSignInModalOpen(true)}
           >
             Sign in
           </button>
           <button
             className="btn btn-signup"
             type="button"
-            onClick={() => handleSignUpButton()}
+            onClick={() => setIsSignUpModalOpen(true)}
           >
             Sign up
           </button>
         </nav>
       </header>
       <div className="content-homepage">Content</div>
+
+      {isSiginInModalOpen && (
+        <SignInModal
+          setIsLoggedIn={setIsLoggedIn}
+          closeModalCallback={setIsSignInModalOpen}
+        />
+      )}
+      {isSiginUpModalOpen && (
+        <SignUpModal
+          setIsLoggedIn={setIsLoggedIn}
+          closeModalCallback={setIsSignUpModalOpen}
+        />
+      )}
     </div>
   );
 };
