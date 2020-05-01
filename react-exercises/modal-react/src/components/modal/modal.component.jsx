@@ -13,8 +13,8 @@ const defaultValues = {
   closeButton: true,
   onEscapeClose: true,
   backdropModalCloseId: 'modal-container',
-  dialogWidth: 350,
-  dialogHeight: 300,
+  maxWidth: 350,
+  maxHeight: 400,
 };
 
 const { Provider } = ModalContext;
