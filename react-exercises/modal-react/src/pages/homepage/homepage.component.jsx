@@ -3,23 +3,10 @@ import SignInModal from '../../components/signin-modal/signin-modal.component';
 import SignUpModal from '../../components/signup-modal/signup-modal.component';
 import './homepage.styles.css';
 
-import { navigate } from '@reach/router';
-
-const Homepage = ({ isLoggedIn, setIsLoggedIn }) => {
+const Homepage = ({ setIsLoggedIn }) => {
   const [isSiginInModalOpen, setIsSignInModalOpen] = useState(false);
   const [isSiginUpModalOpen, setIsSignUpModalOpen] = useState(false);
 
-  const closeBtn = () => {
-    setIsSignInModalOpen(false);
-    setIsSignUpModalOpen(false);
-  };
-
-  const handleSignInButton = () => {
-    setIsSignInModalOpen(true);
-  };
-  const handleSignUpButton = () => {
-    setIsSignUpModalOpen(true);
-  };
   return (
     <div className="homepage-container">
       <header role="heading" className="page-header">
@@ -28,14 +15,14 @@ const Homepage = ({ isLoggedIn, setIsLoggedIn }) => {
           <button
             className="btn btn-signin"
             type="button"
-            onClick={() => handleSignInButton()}
+            onClick={() => setIsSignInModalOpen(true)}
           >
             Sign in
           </button>
           <button
             className="btn btn-signup"
             type="button"
-            onClick={() => handleSignUpButton()}
+            onClick={() => setIsSignUpModalOpen(true)}
           >
             Sign up
           </button>
@@ -43,8 +30,8 @@ const Homepage = ({ isLoggedIn, setIsLoggedIn }) => {
       </header>
       <div className="content-homepage">Content</div>
 
-      {isSiginInModalOpen && <SignInModal />}
-      {isSiginUpModalOpen && <SignUpModal />}
+      {isSiginInModalOpen && <SignInModal setIsLoggedIn={setIsLoggedIn} />}
+      {isSiginUpModalOpen && <SignUpModal setIsLoggedIn={setIsLoggedIn} />}
     </div>
   );
 };
