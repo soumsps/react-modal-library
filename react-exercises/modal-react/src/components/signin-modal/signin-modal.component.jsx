@@ -18,8 +18,10 @@ const SignInModal = (props) => {
             <input type="password" id="password" placeholder="" required />
           </div>
           <div className="form-input">
-            <input type="checkbox" id="remember" required />
-            <label htmlFor="remember">Remember Me</label>
+            <span>
+              <input type="checkbox" id="remember" required />
+              <label htmlFor="remember">Remember Me</label>
+            </span>
           </div>
           <button className="btn btn-signin" type="button">
             Sign In Now
