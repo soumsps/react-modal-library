@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SignInModal from '../../components/signin-modal/signin-modal.component';
+import SignUpModal from '../../components/signup-modal/signup-modal.component';
 import './homepage.styles.css';
+
 import { navigate } from '@reach/router';
 
 const Homepage = ({ isLoggedIn, setIsLoggedIn }) => {
+  const [isSiginInModalOpen, setIsSignInModalOpen] = useState(false);
+  const [isSiginUpModalOpen, setIsSignUpModalOpen] = useState(false);
+
+  const closeBtn = () => {
+    setIsSignInModalOpen(false);
+    setIsSignUpModalOpen(false);
+  };
+
   const handleSignInButton = () => {
-    setIsLoggedIn(true);
-    navigate('/dashboard');
+    setIsSignInModalOpen(true);
   };
   const handleSignUpButton = () => {
-    setIsLoggedIn(true);
-    navigate('/dashboard');
+    setIsSignUpModalOpen(true);
   };
   return (
     <div className="homepage-container">
@@ -33,6 +42,9 @@ const Homepage = ({ isLoggedIn, setIsLoggedIn }) => {
         </nav>
       </header>
       <div className="content-homepage">Content</div>
+
+      {isSiginInModalOpen && <SignInModal />}
+      {isSiginUpModalOpen && <SignUpModal />}
     </div>
   );
 };
