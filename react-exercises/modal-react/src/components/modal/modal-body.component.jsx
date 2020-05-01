@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import ModalContext from './modal-context.component';
+import React from 'react';
 
 const Body = (props) => {
   return <div className="modal-body">{props.children}</div>;
