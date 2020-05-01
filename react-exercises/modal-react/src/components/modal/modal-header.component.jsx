@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import ModalContext from './modal-context.component';
 
 const Header = (props) => {
-  let { closeModalCallback, closeButton } = useContext(ModalContext);
+  let { closeModalCallback, closeButton, backdrop } = useContext(ModalContext);
 
   if (props.closeButton !== 'undefined' && typeof props.closeButton === 'boolean') {
     closeButton = props.closeButton;
+  }
+  if (!backdrop) {
+    closeButton = true;
   }
   const handleCloseButtonClick = () => {
     closeModalCallback(false);
