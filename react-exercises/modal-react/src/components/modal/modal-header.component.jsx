@@ -19,7 +19,7 @@ const Header = (props) => {
     <div className="modal-header">
       {props.children}
       {closeButton && (
-        <button className="modal-closeBtn" onClick={() => handleCloseButtonClick()}>
+        <button className="modal-closeBtn" aria-label="modal-closeBtn" onClick={() => handleCloseButtonClick()}>
           X
         </button>
       )}
