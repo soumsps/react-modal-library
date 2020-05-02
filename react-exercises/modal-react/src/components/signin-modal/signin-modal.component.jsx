@@ -16,11 +16,11 @@ const SignInModal = (props) => {
       <Modal.Body>
         <form onSubmit={(event) => handleSignInFormSubmit(event)}>
           <div className="form-input">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username" aria-label="username">Username</label>
             <input type="text" id="username" placeholder="" required />
           </div>
           <div className="form-input">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" aria-label="password" >Password</label>
             <input type="password" id="password" placeholder="" required />
           </div>
           <div className="form-input">
@@ -29,7 +29,7 @@ const SignInModal = (props) => {
               <label htmlFor="remember">Remember Me</label>
             </span>
           </div>
-          <button className="btn btn-signin" type="submit">
+          <button className="btn btn-signin" type="submit" aria-label="signinBtn" > 
             Sign In Now
           </button>
         </form>

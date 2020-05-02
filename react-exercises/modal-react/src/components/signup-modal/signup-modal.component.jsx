@@ -16,18 +16,18 @@ const SignUpModal = (props) => {
       <Modal.Body>
         <form onSubmit={(event) => handleSignUpFormSubmit(event)}>
           <div className="form-input">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username" aria-label="username">Username</label>
             <input type="text" name="username" placeholder="" required />
           </div>
           <div className="form-input">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" aria-label="password" >Password</label>
             <input type="password" name="password" placeholder="" required />
           </div>
           <div className="form-input">
-            <label htmlFor="reEnterPassword">Re enter password</label>
+            <label htmlFor="reEnterPassword" aria-label="re-password" >Re enter password</label>
             <input type="password" id="reEnterPassword" placeholder="" required />
           </div>
-          <button className="btn btn-signup" type="submit">
+          <button className="btn btn-signup" type="submit" aria-label="signupBtn">
             Sign Up Now
           </button>
         </form>
