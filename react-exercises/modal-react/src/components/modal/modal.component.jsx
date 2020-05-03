@@ -22,18 +22,41 @@ const { Provider } = ModalContext;
 const Modal = (props) => {
   const newModalValue = { ...defaultValues, ...props };
 
-  const handleModalCloseOnEscPress = useCallback((event) => {
-    if (event.keyCode === 27 && newModalValue.onEscapeClose) {
-      newModalValue.closeModalCallback(false);
-    }
-  }, []);
+  const handleKeyboardButton = useCallback(
+    (event) => {
+      // keyboard escape key
+      if (event.keyCode === 27 && newModalValue.onEscapeClose) {
+        event.preventDefault();
+        newModalValue.closeModalCallback(false);
+      }
+
+      // keyboard tab key
+      if (event.keyCode === 9) {
+        if (event.target.getAttribute('data-last-focusable')) {
+          event.preventDefault();
+          document.querySelector('[data-modal-close-button]').focus();
+        } else if (event.target.getAttribute('data-modal-close-button')) {
+          event.preventDefault();
+          document.querySelector('[data-first-focusable]').focus();
+        }
+      }
+    },
+    [newModalValue]
+  );
 
   useEffect(() => {
-    document.addEventListener('keydown', handleModalCloseOnEscPress, false);
+    document.addEventListener('keydown', handleKeyboardButton, false);
+    if (
+      !!document.querySelector('[data-first-focusable]') &&
+      !!document.querySelector('[data-last-focusable]')
+    ) {
+      document.querySelector('[data-first-focusable]').focus();
+    }
+
     return () => {
-      document.removeEventListener('keydown', handleModalCloseOnEscPress, false);
+      document.removeEventListener('keydown', handleKeyboardButton, false);
     };
-  }, []);
+  }, [handleKeyboardButton]);
 
   return (
     <Provider value={newModalValue}>
