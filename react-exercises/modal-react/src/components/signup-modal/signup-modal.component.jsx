@@ -16,18 +16,48 @@ const SignUpModal = (props) => {
       <Modal.Body>
         <form onSubmit={(event) => handleSignUpFormSubmit(event)}>
           <div className="form-input">
-            <label htmlFor="username">Username</label>
-            <input type="text" name="username" placeholder="" required />
+            <label htmlFor="username" aria-label="username">
+              Username
+            </label>
+            <input
+              tabIndex="1"
+              type="text"
+              name="username"
+              placeholder="Enter username"
+              required
+              data-first-focusable="true"
+            />
           </div>
           <div className="form-input">
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" placeholder="" required />
+            <label htmlFor="password" aria-label="password">
+              Password
+            </label>
+            <input
+              tabIndex="2"
+              type="password"
+              name="password"
+              placeholder="Enter password"
+              required
+            />
           </div>
           <div className="form-input">
-            <label htmlFor="reEnterPassword">Re enter password</label>
-            <input type="password" id="reEnterPassword" placeholder="" required />
+            <label htmlFor="reEnterPassword" aria-label="re-password">
+              Re enter password
+            </label>
+            <input
+              tabIndex="3"
+              type="password"
+              id="reEnterPassword"
+              placeholder="Please re-enter password"
+              required
+            />
           </div>
-          <button className="btn btn-signup" type="submit">
+          <button
+            tabIndex="4"
+            className="btn btn-signup"
+            type="submit"
+            aria-label="signupBtn"
+          >
             Sign Up Now
           </button>
         </form>
@@ -35,7 +65,10 @@ const SignUpModal = (props) => {
       <Modal.Footer>
         <small style={{ textAlign: 'center' }}>
           By continuing, you agree to React-modal's Conditions of Use and{' '}
-          <a href="/privacy-notice">Privacy Notice</a>.
+          <a tabIndex="5" href="/privacy-notice" data-last-focusable="true">
+            Privacy Notice
+          </a>
+          .
         </small>
       </Modal.Footer>
     </Modal>

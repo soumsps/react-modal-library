@@ -15,6 +15,7 @@ const Homepage = ({ setIsLoggedIn }) => {
           <button
             className="btn btn-signin"
             type="button"
+            aria-label="Sign In"
             onClick={() => setIsSignInModalOpen(true)}
           >
             Sign in
@@ -22,6 +23,7 @@ const Homepage = ({ setIsLoggedIn }) => {
           <button
             className="btn btn-signup"
             type="button"
+            aria-label="Sign Up"
             onClick={() => setIsSignUpModalOpen(true)}
           >
             Sign up
