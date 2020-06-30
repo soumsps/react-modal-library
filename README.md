@@ -1,17 +1,14 @@
-# Instructions
+# Modal Specifications
 
-1. Run `npm i` to install the dependencies
-2. Create a new branch
-3. Download the questions using the command
+Your aim is to create a React component that displays a modal. A Modal is an overlay on the web-page as shown in the picture below.
 
-```shell
-npm run download <exercise-name>
-```
+![sample.png](sample.png)
 
-4. Solve the question and create a Pull Request
+## Requirements
 
-## Note
-
-- **One** question per Pull Request
-- Each Pull Request should have code only related to that question
-- If you have changes related to `babel` etc. please create a separate PR for that and merge it
+- The Modal component should be re-usable and a module that can be shared.
+  - You component should be able to render multiple modals by calling the component multiple times.
+  - It should have a defined input interface and a defined output.
+  - You need to design an API letting the user override in-built functionalities as they please.
+  - All the over-ridable APIs need to have sensible defaults.
+- The modal should be accessible according to the modern web accessibility practices. Read more [here](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
